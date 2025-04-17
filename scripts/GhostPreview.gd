@@ -1,0 +1,1 @@
+# GhostPreview.gd placeholder
