@@ -1,1 +1,28 @@
+# MetadataPanel.gd
+extends Control
 
+# Reference to labels (assigned via the editor or get_node in _ready)
+@onready var name_label = $VBoxContainer/NameLabel
+@onready var type_label = $VBoxContainer/TypeLabel
+@onready var material_label = $VBoxContainer/MaterialLabel
+@onready var cost_label = $VBoxContainer/CostLabel
+
+func update_metadata(object: Node) -> void:
+    # If the object is valid and has metadata keys, display them
+    if object and object.has_meta("metadata"):
+        var data = object.get_meta("metadata")
+
+        # Safe-access metadata fields with defaults if missing
+        name_label.text = "Name: " + str(data.get("name", "Unknown"))
+        type_label.text = "Type: " + str(data.get("type", "N/A"))
+        material_label.text = "Material: " + str(data.get("material", "None"))
+        cost_label.text = "Cost: $" + str(data.get("cost", 0.0))
+    else:
+        clear_panel()
+
+func clear_panel() -> void:
+    # Reset all fields to default when nothing is selected or data is missing
+    name_label.text = "Name: -"
+    type_label.text = "Type: -"
+    material_label.text = "Material: -"
+    cost_label.text = "Cost: -"
