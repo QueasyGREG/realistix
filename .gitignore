@@ -1,0 +1,16 @@
+
+# Godot 4 engine files
+.import/
+export.cfg
+export_presets.cfg
+project.godot.lock
+# OS-specific
+.DS_Store
+Thumbs.db
+# Build files
+*.exe
+*.dll
+*.apk
+*.zip
+*.pck
+*.log
