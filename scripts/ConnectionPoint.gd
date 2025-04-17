@@ -1,0 +1,1 @@
+# ConnectionPoint.gd placeholder
